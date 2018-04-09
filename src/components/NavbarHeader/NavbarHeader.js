@@ -9,6 +9,9 @@ const NavbarHeader = props => {
                 </li>
                 <li>
                     <a href="/"> Clicky Game! Chibi Pokemon Edition!</a>
+                </li>  
+                <li>
+                    <h3> {props.message}</h3>
                 </li>    
                 <li>
                    <h3> Score: {props.score}  | Top Score: {props.top_score} </h3>
