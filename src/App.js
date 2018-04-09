@@ -21,24 +21,54 @@ class App extends Component {
     ],
     currentScore: 0,
     top_score: 0,
-    clickedPokemon: [],
+    unclickedPokemon: [
+      "Pichu",
+      "Bulbasaur",
+      "Charmander",
+      "Charizard",
+      "Jigglypuff",
+      "Meowth",
+      "Mew",
+      "Pikachu",
+      "Psyduck",
+      "Squirtle",
+      "Togepi",
+      "Vulpix"
+    ],
     message: `Let's play!`
   };
 
   pokemonCaught = (name) => {
-    let clickedPokedex = this.state.clickedPokemon.indexOf(name);
-    if (clickedPokedex === -1){
+    const clickedPokemon = this.state.unclickedPokemon.find(el => el === name);
+    // const clickedPokemon= name;
+    console.log(clickedPokemon);
+    if (clickedPokemon){
+      const clickedPokemonIndex = this.state.unclickedPokemon.indexOf(clickedPokemon);
       this.setState({
         currentScore: this.state.currentScore + 1,
-        clickedPokemon: [...this.state.clickedPokemon.splice(), name]
+        clickedPokemon: this.state.unclickedPokemon.splice(clickedPokemonIndex, 1)
       })
-      console.log(this.state.clickedPokemon[0]);
+      console.log(this.state.unclickedPokemon);
     } else {
       this.setState({
         message: 'Pokemon fled!',
-        currentScore: 0
+        currentScore: 0,
+        unclickedPokemon: [
+          "Pichu",
+          "Bulbasaur",
+          "Charmander",
+          "Charizard",
+          "Jigglypuff",
+          "Meowth",
+          "Mew",
+          "Pikachu",
+          "Psyduck",
+          "Squirtle",
+          "Togepi",
+          "Vulpix"
+        ]
       })
-      console.log(`${this.state.clickedPokemon[0]}  PEACE OUT`);
+      console.log(`${this.state.unclickedPokemon}  PEACE OUT`);
     }
     this.shuffleArray(this.state.pokemon);
   }
@@ -66,11 +96,12 @@ class App extends Component {
         <h1> Gotta Catch Em All!</h1>
         <header className="App-header">
           <div className="container">
-            {this.state.pokemon.map((el, index) => 
+            {this.state.pokemon.map(el => 
               <CharacterCard
                 image={"./images/".concat(el).concat(".png")}
                 name={el}
                 check_click={this.pokemonCaught}
+                key={el}
               />
             )}
           </div>
