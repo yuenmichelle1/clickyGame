@@ -40,7 +40,6 @@ class App extends Component {
 
   pokemonCaught = (name) => {
     const clickedPokemon = this.state.unclickedPokemon.find(el => el === name);
-    // const clickedPokemon= name;
     console.log(clickedPokemon);
     if (clickedPokemon){
       const clickedPokemonIndex = this.state.unclickedPokemon.indexOf(clickedPokemon);
@@ -53,20 +52,7 @@ class App extends Component {
       this.setState({
         message: 'Pokemon fled!',
         currentScore: 0,
-        unclickedPokemon: [
-          "Pichu",
-          "Bulbasaur",
-          "Charmander",
-          "Charizard",
-          "Jigglypuff",
-          "Meowth",
-          "Mew",
-          "Pikachu",
-          "Psyduck",
-          "Squirtle",
-          "Togepi",
-          "Vulpix"
-        ]
+        unclickedPokemon: this.state.pokemon
       })
       console.log(`${this.state.unclickedPokemon}  PEACE OUT`);
     }
