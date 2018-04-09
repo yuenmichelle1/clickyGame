@@ -25,11 +25,22 @@ class App extends Component {
     message: `Let's play!`
   };
 
-  pokemonCaught = () => {
-    // if (this.state.pokemon.indexOf(key) > -1){
-      this.handleIncrement()
-      this.shuffleArray(this.state.pokemon);
-    // }
+  pokemonCaught = (name) => {
+    let clickedPokedex = this.state.clickedPokemon.indexOf(name);
+    if (clickedPokedex === -1){
+      this.setState({
+        currentScore: this.state.currentScore + 1,
+        clickedPokemon: [...this.state.clickedPokemon.splice(), name]
+      })
+      console.log(this.state.clickedPokemon[0]);
+    } else {
+      this.setState({
+        message: 'Pokemon fled!',
+        currentScore: 0
+      })
+      console.log(`${this.state.clickedPokemon[0]}  PEACE OUT`);
+    }
+    this.shuffleArray(this.state.pokemon);
   }
 
   handleIncrement = () => {
@@ -55,11 +66,10 @@ class App extends Component {
         <h1> Gotta Catch Em All!</h1>
         <header className="App-header">
           <div className="container">
-            {this.state.pokemon.map(el => 
+            {this.state.pokemon.map((el, index) => 
               <CharacterCard
                 image={"./images/".concat(el).concat(".png")}
                 name={el}
-                key={el}
                 check_click={this.pokemonCaught}
               />
             )}
