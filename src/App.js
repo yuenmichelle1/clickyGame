@@ -35,7 +35,7 @@ class App extends Component {
       "Togepi",
       "Vulpix"
     ],
-    message: `Let's play!`
+    message: `Click A Pokemon To Start!`
   };
 
   pokemonCaught = (name) => {
@@ -43,24 +43,40 @@ class App extends Component {
     console.log(clickedPokemon);
     if (clickedPokemon){
       const clickedPokemonIndex = this.state.unclickedPokemon.indexOf(clickedPokemon);
-      this.setState({
-        currentScore: this.state.currentScore + 1,
-        clickedPokemon: this.state.unclickedPokemon.splice(clickedPokemonIndex, 1)
-      })
-      console.log(this.state.unclickedPokemon);
+      const newScore = this.state.currentScore + 1;
+      if (newScore > this.state.top_score){
+        this.setState({
+          currentScore: newScore,
+          clickedPokemon: this.state.unclickedPokemon.splice(clickedPokemonIndex, 1),
+          top_score: newScore
+        })
+      } else {
+        this.setState({
+          currentScore: this.state.currentScore + 1,
+          clickedPokemon: this.state.unclickedPokemon.splice(clickedPokemonIndex, 1)
+        })
+      }
     } else {
       this.setState({
         message: 'Pokemon fled!',
         currentScore: 0,
-        unclickedPokemon: this.state.pokemon
+        unclickedPokemon: [
+          "Pichu",
+          "Bulbasaur",
+          "Charmander",
+          "Charizard",
+          "Jigglypuff",
+          "Meowth",
+          "Mew",
+          "Pikachu",
+          "Psyduck",
+          "Squirtle",
+          "Togepi",
+          "Vulpix"
+        ]
       })
-      console.log(`${this.state.unclickedPokemon}  PEACE OUT`);
     }
     this.shuffleArray(this.state.pokemon);
-  }
-
-  handleIncrement = () => {
-    this.setState({ currentScore: this.state.currentScore + 1 });
   }
 
   shuffleArray = arr => {
@@ -79,7 +95,7 @@ class App extends Component {
           score={this.state.currentScore}
           top_score={this.state.top_score}
         />
-        <h1> Gotta Catch Em All!</h1>
+        <h1 className="rules"> Gotta Catch Em All!</h1>
         <header className="App-header">
           <div className="container">
             {this.state.pokemon.map(el => 

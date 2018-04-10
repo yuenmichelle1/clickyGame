@@ -1,6 +1,10 @@
 .App {
   text-align: center;
 }
+.rules {
+  background-color: beige;
+  opacity: 0.8;
+}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -26,6 +30,10 @@ ul {
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

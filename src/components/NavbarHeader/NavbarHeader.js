@@ -1,4 +1,5 @@
 import React from 'react';
+import './NavbarHeader.css'
 
 const NavbarHeader = props => {
     return (
@@ -10,11 +11,11 @@ const NavbarHeader = props => {
                 <li>
                     <a href="/"> Clicky Game! Chibi Pokemon Edition!</a>
                 </li>  
-                <li>
-                    <h3> {props.message}</h3>
+                <li className="scoreboard">
+                    <h1> {props.message}</h1>
                 </li>    
-                <li>
-                   <h3> Score: {props.score}  | Top Score: {props.top_score} </h3>
+                <li className="scoreboard">
+                   <h1> Score: {props.score}  | Top Score: {props.top_score} </h1>
                 </li>        
             </ul>
         </nav>
