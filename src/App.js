@@ -35,7 +35,7 @@ class App extends Component {
       "Togepi",
       "Vulpix"
     ],
-    message: `Click A Pokemon To Start!`
+    message: `Click A Pokemon!`
   };
 
   pokemonCaught = (name) => {
@@ -48,12 +48,14 @@ class App extends Component {
         this.setState({
           currentScore: newScore,
           clickedPokemon: this.state.unclickedPokemon.splice(clickedPokemonIndex, 1),
-          top_score: newScore
+          top_score: newScore,
+          message: `Click A Pokemon!`
         })
       } else {
         this.setState({
           currentScore: this.state.currentScore + 1,
-          clickedPokemon: this.state.unclickedPokemon.splice(clickedPokemonIndex, 1)
+          clickedPokemon: this.state.unclickedPokemon.splice(clickedPokemonIndex, 1),
+          message: `Click A Pokemon!`
         })
       }
     } else {
@@ -84,7 +86,6 @@ class App extends Component {
       const j = Math.floor(Math.random() * (i + 1));
       [arr[i], arr[j]] = [arr[j], arr[i]];
     }
-    console.log("click");
   };
 
   render() {
