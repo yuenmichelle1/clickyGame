@@ -6,7 +6,7 @@ const NavbarHeader = props => {
         <nav className="navbar">
             <ul>
                 <li className ="brand">
-                    <img src="./images/pokemon.header.png" width="300" height="200" alt="Pokemon Header"/>
+                    <img src="./images/pokemon.header.png" width="400" height="200" alt="Pokemon Header"/>
                 </li>
                 <li>
                     <a href="/"> Clicky Game! Chibi Pokemon Edition!</a>
