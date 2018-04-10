@@ -4,7 +4,7 @@ body {
   font-family: 'Dokdo', cursive;
   color: navy;
   font-weight: bolder;
-  background-image: url("/images/Pokeball.jpg");
+  background-image: url("Pokeball.jpg");
   background-attachment: fixed;
   background-position: center;
 }
