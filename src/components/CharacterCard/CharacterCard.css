@@ -3,10 +3,16 @@
     border: 1px solid black;
     display: inline-block;
     margin: 10px 10px 10px 10px;
-    border-radius: 6px;
+    border-radius: 8px;
     box-shadow: 0 3px 6px #999, 0 3px 6px #999;
     position: relative;
     color: black;
+    cursor: pointer;
+}
+
+.Card:hover {
+    transform: scale(1.1, 1.1);
+    transition: 0.3s ease;
 }
 .img-container {
     background-color: white;

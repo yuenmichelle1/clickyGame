@@ -5,6 +5,8 @@ body {
   color: navy;
   font-weight: bolder;
   background-image: url("Pokeball.jpg");
+  background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+  background-size: cover;
 }
